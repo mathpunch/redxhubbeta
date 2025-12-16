@@ -90,27 +90,6 @@ frame.Draggable = true
 frame.ZIndex = 10
 Instance.new("UICorner", frame).CornerRadius = UDim.new(0,16)
 
-local minimizeBtn = Instance.new("TextButton", frame)
-minimizeBtn.Size = UDim2.fromScale(0.15,0.05)
-minimizeBtn.Position = UDim2.fromScale(0.85,0.0)
-minimizeBtn.Text = "_"
-minimizeBtn.TextScaled = true
-minimizeBtn.Font = Enum.Font.GothamBold
-minimizeBtn.BackgroundColor3 = Color3.fromRGB(180,20,20)
-minimizeBtn.TextColor3 = Color3.fromRGB(255,255,255)
-Instance.new("UICorner", minimizeBtn).CornerRadius = UDim.new(0,8)
-
-local minimized = false
-minimizeBtn.MouseButton1Click:Connect(function()
-	minimized = not minimized
-	for _,v in pairs(frame:GetChildren()) do
-		if v ~= minimizeBtn then
-			v.Visible = not minimized
-		end
-	end
-	frame.Size = minimized and UDim2.fromScale(0.1,0.05) or UDim2.fromScale(0.5,0.72)
-end)
-
 local function label(text,size,pos)
 	local l = Instance.new("TextLabel", frame)
 	l.Size = size
@@ -203,7 +182,7 @@ jumpBox.ZIndex=11
 Instance.new("UICorner",jumpBox).CornerRadius=UDim.new(0,10)
 
 local jumpMinus = Instance.new("TextButton",frame)
-jumpMinus.Size = UDim2.fromScale(0.18,0.08)
+jumpMinus.Size=UDim2.fromScale(0.18,0.08)
 jumpMinus.Position = UDim2.fromScale(0.5,curY)
 jumpMinus.Text="-"
 jumpMinus.TextScaled=true
